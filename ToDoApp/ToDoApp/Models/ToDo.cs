@@ -13,5 +13,7 @@
             this.isUrgent = isUrgent;
             this.isDone = false;
         }
+
+        public long Id { get => id; set => id = value; }
     }
 }
