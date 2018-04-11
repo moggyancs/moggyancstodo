@@ -9,11 +9,14 @@
 
         public ToDo(string title, bool isUrgent)
         {
-            this.title = title;
-            this.isUrgent = isUrgent;
-            this.isDone = false;
+            this.Title = title;
+            this.IsUrgent = isUrgent;
+            this.IsDone = false;
         }
 
         public long Id { get => id; set => id = value; }
+        public string Title { get => title; set => title = value; }
+        public bool IsUrgent { get => isUrgent; set => isUrgent = value; }
+        public bool IsDone { get => isDone; set => isDone = value; }
     }
 }

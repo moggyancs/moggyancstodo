@@ -1,22 +1,49 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using ToDoApp.Models;
+using ToDoApp.Repositories;
 
-namespace ToDoApp.Controllers
+// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
+namespace ToDoApp
 {
-    [Route("/todo")]
+
+    [Route("/Todo")]
     public class ToDoController : Controller
     {
-        IRepository myToDos;
+        IDoThingsRepo MyToDos;
 
-        public ToDoController(IRepository myToDos)
+        public ToDoController(IDoThingsRepo myToDos)
         {
-            this.myToDos = myToDos;
+            MyToDos = myToDos;
         }
 
         [Route("/")]
-        [Route("/list")]
-        public IActionResult Index()
+        [Route("/List")]
+        [HttpGet]
+        public IActionResult List()
         {
-            return View(myToDos.Read());
+
+            return View(MyToDos.Read());
+        }
+
+        [Route("/Add")]
+        [HttpGet]
+        public IActionResult Add()
+        {
+            return View();
+        }
+
+        [Route("/Create")]
+        [HttpPost]
+        public IActionResult Create(string Title, bool IsUrgent)
+        {
+            ToDo thing = new ToDo(Title, IsUrgent);
+            MyToDos.Create(thing);
+            return RedirectToAction("List");
         }
     }
 }

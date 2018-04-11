@@ -1,12 +1,20 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using ToDoApp.Models;
 
-namespace ToDoApp
+namespace ToDoApp.Repositories
 {
-    public class Repository : IRepository
+    public class ToDoRepo : IDoThingsRepo
     {
         ToDoContext context;
+
+        public ToDoRepo(ToDoContext context)
+        {
+            this.context = context;
+        }
+
         public void Create(ToDo thing)
         {
             context.Add(thing);

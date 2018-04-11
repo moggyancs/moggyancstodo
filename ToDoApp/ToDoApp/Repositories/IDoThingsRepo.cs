@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using ToDoApp.Models;
 
-namespace ToDoApp
+namespace ToDoApp.Repositories
 {
-    public interface IRepository
+    public interface IDoThingsRepo
     {
         void Create(ToDo thing);
         List<ToDo> Read();

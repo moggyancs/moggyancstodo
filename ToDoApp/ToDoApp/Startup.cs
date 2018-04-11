@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using System;
+using ToDoApp.Repositories;
 
 namespace ToDoApp
 {
@@ -13,8 +15,9 @@ namespace ToDoApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            string connection = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;";
+            var connection = @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = MyToDo; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False";
             services.AddDbContext<ToDoContext>(options => options.UseSqlServer(connection));
+            services.AddScoped<IDoThingsRepo, ToDoRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
