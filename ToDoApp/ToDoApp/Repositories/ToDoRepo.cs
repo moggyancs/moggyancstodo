@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using ToDoApp.Models;
 
 namespace ToDoApp.Repositories
@@ -21,7 +19,7 @@ namespace ToDoApp.Repositories
             context.SaveChanges();
         }
 
-        public void Delete(long id)
+        public void Delete(int id)
         {
             ToDo thing = context.ToDos.FirstOrDefault(c => c.Id == id);
             context.Remove(thing);
@@ -33,7 +31,7 @@ namespace ToDoApp.Repositories
             return context.ToDos.ToList();
         }
 
-        public void Update(long id)
+        public void Update(int id)
         {
             ToDo thingToUpdate = context.ToDos.FirstOrDefault(c => c.Id == 1);
             context.Update(thingToUpdate);

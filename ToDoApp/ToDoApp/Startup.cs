@@ -15,8 +15,9 @@ namespace ToDoApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            var connection = @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = MyToDo; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False";
-            services.AddDbContext<ToDoContext>(options => options.UseSqlServer(connection));
+            var connection = Environment.GetEnvironmentVariable("DATABASE_CONNECTION_STRING");
+            //services.AddDbContext<ToDoContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<ToDoContext>(options => options.UseNpgsql(connection));
             services.AddScoped<IDoThingsRepo, ToDoRepo>();
         }
 

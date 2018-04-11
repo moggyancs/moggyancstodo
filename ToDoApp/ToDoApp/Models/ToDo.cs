@@ -2,7 +2,7 @@
 {
     public class ToDo
     {
-        private long id;
+        private int id;
         private string title;
         private bool isUrgent;
         private bool isDone;
@@ -14,7 +14,7 @@
             this.IsDone = false;
         }
 
-        public long Id { get => id; set => id = value; }
+        public int Id { get => id; set => id = value; }
         public string Title { get => title; set => title = value; }
         public bool IsUrgent { get => isUrgent; set => isUrgent = value; }
         public bool IsDone { get => isDone; set => isDone = value; }
