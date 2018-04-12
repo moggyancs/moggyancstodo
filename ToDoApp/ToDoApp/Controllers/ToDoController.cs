@@ -36,7 +36,7 @@ namespace ToDoApp
         [HttpGet]
         public IActionResult Entry([FromRoute] int id)
         {
-            return View();
+            return View(MyToDos.ShowToDo(id));
         }
 
         [Route("/Create")]

@@ -23,7 +23,7 @@
             @foreach (var thing in Model)
             {
                 <tr>
-                    <td>@thing.Title</td>
+                    <td><a href="/Entry/@thing.Id">@thing.Title</a></td>
                     <td>User</td>
 
                     @if (thing.IsUrgent)

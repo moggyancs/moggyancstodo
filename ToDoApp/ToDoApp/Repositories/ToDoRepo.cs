@@ -31,6 +31,11 @@ namespace ToDoApp.Repositories
             return context.ToDos.ToList();
         }
 
+        public ToDo ShowToDo(long id)
+        {
+            return context.ToDos.Single(c => c.Id == id);
+        }
+
         public void Update(long id)
         {
             ToDo thingToUpdate = context.ToDos.FirstOrDefault(c => c.Id == 1);

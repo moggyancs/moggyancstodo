@@ -9,5 +9,6 @@ namespace ToDoApp.Repositories
         List<ToDo> Read();
         void Update(long id);
         void Delete(long id);
+        ToDo ShowToDo(long id);
     }
 }
