@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using ToDoApp.Models;
 using ToDoApp.Repositories;
 
@@ -36,12 +32,27 @@ namespace ToDoApp
             return View();
         }
 
+        [Route("/Entry/{id}")]
+        [HttpGet]
+        public IActionResult Entry([FromRoute] int id)
+        {
+            return View();
+        }
+
         [Route("/Create")]
         [HttpPost]
         public IActionResult Create(string Title, bool IsUrgent)
         {
             ToDo thing = new ToDo(Title, IsUrgent);
             MyToDos.Create(thing);
+            return RedirectToAction("List");
+        }
+
+        [Route("/Remove/{id}")]
+        [HttpGet]
+        public IActionResult Remove([FromRoute] int id)
+        {
+            MyToDos.Delete(id);
             return RedirectToAction("List");
         }
 

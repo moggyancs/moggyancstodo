@@ -21,7 +21,7 @@ namespace ToDoApp.Repositories
 
         public void Delete(long id)
         {
-            ToDo thing = context.ToDos.FirstOrDefault(c => c.Id == id);
+            ToDo thing = context.ToDos.Single(c => c.Id == id);
             context.Remove(thing);
             context.SaveChanges();
         }
