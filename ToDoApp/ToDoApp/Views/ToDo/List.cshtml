@@ -2,28 +2,34 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/Bootstrap/bootstrap.css" />
     <title>What to do today</title>
 </head>
 <body>
-    <h1>Todos for today</h1>
-    <form action="/add" method="get">
-        <button type="submit" class="btn btn-primary">Add new thing</button>
-    </form>
-    <table style="width:50%">
-        <tr>
-            <th>Things to do</th>
-            <th>Urgent</th>
-            <th>Done</th>
-        </tr>
-        @foreach (var thing in Model)
+    @await Html.PartialAsync("NavBar")
+
+    <div class="container">
+        <h1>Todos for today</h1>
+
+        <table style="width:50%">
+            <tr>
+                <th>Things to do</th>
+                <th>Urgent</th>
+                <th>Done</th>
+            </tr>
+            @foreach (var thing in Model)
         {
         <tr>
             <td>@thing.Title</td>
-            <td>@thing.IsUrgent</td>
+            @if(thing.IsUrgent)
+            {
+        <td>&#9889</td>}
+            @if(thing.IsDone){
+        <td>&#9989</td>}
         </tr>
         }
-    </table>
+        </table>
+    </div>
     <script src="~/Bootstrap/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="~Bootstrap/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <script src="~/Bootstrap/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
