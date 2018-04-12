@@ -7,10 +7,11 @@ namespace ToDoApp
     public class ToDoContext : DbContext
     {
         public DbSet<ToDo> ToDos { get; set; }
-        //public DbSet<User> Users { get; set; }
+        public DbSet<User> Users { get; set; }
+
         public ToDoContext(DbContextOptions options) : base(options)
         {
-            
+
         }
     }
 }

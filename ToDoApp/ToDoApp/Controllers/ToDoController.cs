@@ -32,6 +32,15 @@ namespace ToDoApp
             return View();
         }
 
+        [Route("/Create")]
+        [HttpPost]
+        public IActionResult Create(ToDo todo)
+        {
+            //ToDo thing = new ToDo(Title, IsUrgent);
+            MyToDos.Create(todo);
+            return RedirectToAction("List");
+        }
+
         [Route("/Entry/{id}")]
         [HttpGet]
         public IActionResult Entry([FromRoute] int id)
@@ -39,14 +48,6 @@ namespace ToDoApp
             return View(MyToDos.ShowToDo(id));
         }
 
-        [Route("/Create")]
-        [HttpPost]
-        public IActionResult Create(string Title, bool IsUrgent)
-        {
-            ToDo thing = new ToDo(Title, IsUrgent);
-            MyToDos.Create(thing);
-            return RedirectToAction("List");
-        }
 
         [Route("/Remove/{id}")]
         [HttpGet]

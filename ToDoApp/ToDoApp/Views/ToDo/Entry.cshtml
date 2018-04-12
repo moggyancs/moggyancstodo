@@ -10,9 +10,11 @@
     <div class="container">
         <h2>@Model.Title</h2>
         @if (Model.IsUrgent)
-    {
-        <p class="text-danger">This task is URGENT</p>
-}
-        </div>
+        {
+            <p class="text-danger">This task is URGENT</p>
+        }
+
+        <p>@Model.Description</p>
+    </div>
 </body>
 </html>

@@ -10,9 +10,10 @@ using ToDoApp;
 namespace ToDoApp.Migrations
 {
     [DbContext(typeof(ToDoContext))]
-    partial class ToDoContextModelSnapshot : ModelSnapshot
+    [Migration("20180412152729_users")]
+    partial class users
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,11 +33,7 @@ namespace ToDoApp.Migrations
 
                     b.Property<string>("Title");
 
-                    b.Property<int?>("UserId");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("ToDos");
                 });
@@ -55,13 +52,6 @@ namespace ToDoApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("ToDoApp.Models.ToDo", b =>
-                {
-                    b.HasOne("ToDoApp.Models.User")
-                        .WithMany("ToDos")
-                        .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618
         }
