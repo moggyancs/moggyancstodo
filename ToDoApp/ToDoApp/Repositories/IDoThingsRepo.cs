@@ -7,7 +7,7 @@ namespace ToDoApp.Repositories
     {
         void Create(ToDo thing);
         List<ToDo> Read();
-        void Update(int id);
-        void Delete(int id);
+        void Update(long id);
+        void Delete(long id);
     }
 }

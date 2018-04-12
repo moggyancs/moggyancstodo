@@ -26,7 +26,6 @@ namespace ToDoApp
         [HttpGet]
         public IActionResult List()
         {
-
             return View(MyToDos.Read());
         }
 
