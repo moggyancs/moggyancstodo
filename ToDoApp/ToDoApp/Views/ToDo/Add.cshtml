@@ -21,12 +21,6 @@
                     <textarea class="form-control" id="Add details here" rows="2" name="Description"></textarea>
                 </div>
 
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" value="true" name="IsUrgent">
-                        Check the box if it is urgent.
-                    </label>
-                </div>
                 <div class="form-group">
                     <label for="exampleSelect1">Whose task is this</label>
                     <select class="form-control" id="exampleSelect1">
@@ -35,6 +29,13 @@
                             <option>@user.Name</option>
                         }
                     </select>
+                </div>
+
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" value="true" name="IsUrgent">
+                        Check the box if it is urgent.
+                    </label>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </fieldset>
