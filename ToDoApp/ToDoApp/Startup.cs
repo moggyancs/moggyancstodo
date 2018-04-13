@@ -15,8 +15,8 @@ namespace ToDoApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddDbContext<ToDoContext>(options => options.UseSqlServer(Environment.GetEnvironmentVariable("SQL_CONNECTIONSTRING")));
-            //services.AddDbContext<ToDoContext>(options => options.UseNpgsql(Environment.GetEnvironmentVariable("NPG_CONNECTIONSTRING")));
+            //services.AddDbContext<ToDoContext>(options => options.UseSqlServer(Environment.GetEnvironmentVariable("SQL_CONNECTIONSTRING")));
+            services.AddDbContext<ToDoContext>(options => options.UseNpgsql(Environment.GetEnvironmentVariable("NPG_CONNECTIONSTRING")));
             services.AddScoped<IDoThingsRepo, ToDoRepo>();
         }
 
