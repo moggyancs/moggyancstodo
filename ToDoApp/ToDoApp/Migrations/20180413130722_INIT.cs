@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace ToDoApp.Migrations
 {
-    public partial class InitPostGre : Migration
+    public partial class INIT : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,7 +16,8 @@ namespace ToDoApp.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     IsAdmin = table.Column<bool>(nullable: false),
-                    Name = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: true),
+                    PictureSource = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

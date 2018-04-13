@@ -11,8 +11,8 @@ using ToDoApp;
 namespace ToDoApp.Migrations
 {
     [DbContext(typeof(ToDoContext))]
-    [Migration("20180413123800_userpic")]
-    partial class Userpic
+    [Migration("20180413130722_INIT")]
+    partial class INIT
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
