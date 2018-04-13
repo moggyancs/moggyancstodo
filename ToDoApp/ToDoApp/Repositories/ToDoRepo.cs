@@ -62,7 +62,7 @@ namespace ToDoApp.Repositories
             return context.Users.Single(c => c.Id == id);
         }
 
-        public void RemoveUser(int id)
+        public void DeleteUser(int id)
         {
             User person = context.Users.Single(c => c.Id == id);
             context.Remove(person);

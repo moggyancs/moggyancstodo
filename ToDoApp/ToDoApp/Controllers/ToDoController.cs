@@ -77,11 +77,11 @@ namespace ToDoApp
             return View(MyToDos.ShowUser(id));
         }
 
-        [Route("/Delete/{id}")]
+        [Route("/Deleteuser/{id}")]
         [HttpGet]
-        public IActionResult Delete([FromRoute] int id)
+        public IActionResult DeleteUser([FromRoute] int id)
         {
-            MyToDos.Delete(id);
+            MyToDos.DeleteUser(id);
             return RedirectToAction("Users");
         }
     }

@@ -8,23 +8,25 @@
 </head>
 <body>
     @await Html.PartialAsync("NavBar")
-    <div class="col-4">
-        <br />
-        <h1>Users of the page</h1>
+    <div class="container">
+        <div class="col-4">
+            <br />
+            <h1>Users of the page</h1>
 
-        @foreach (var user in Model)
-        {
-            <p>
-                <a href="/delete/@user.Id">X</a>
-                <a href="/profile/@user.Id">@user.Name</a>
-            </p>
-        }
+            @foreach (var user in Model)
+            {
+                <p>
+                    <a href="/deleteuser/@user.Id">X</a>
+                    <a href="/profile/@user.Id">@user.Name</a>
+                </p>
+            }
 
-        <form action="/Users" method="post">
-            <input type="text" name="Name" value="" />
-            <input type="text" name="PictureSource" value="" />
-            <button type="submit" class="btn btn-dark">Add User</button>
-        </form>
+            <form action="/Users" method="post">
+                <input type="text" name="Name" value="" />
+                <input type="text" name="PictureSource" value="" />
+                <button type="submit" class="btn btn-dark">Add User</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>

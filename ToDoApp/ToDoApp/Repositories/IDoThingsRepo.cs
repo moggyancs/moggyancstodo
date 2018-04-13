@@ -14,5 +14,6 @@ namespace ToDoApp.Repositories
         void AddUser(User user);
         IEnumerable<User> GetUsers();
         User ShowUser(int id);
+        void DeleteUser(int id);
     }
 }
