@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 using ToDoApp.Repositories;
 
 namespace ToDoApp
@@ -15,9 +14,9 @@ namespace ToDoApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            var connection = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=MyToDo;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-            services.AddDbContext<ToDoContext>(options => options.UseSqlServer(connection));
-            //services.AddDbContext<ToDoContext>(options => options.UseNpgsql(connection));
+            var connection = @"User ID=cgyqlznpuxxamh;Password=071c1225f1ffe75ff0029222d66c9acc5b06d4a64ff3b80c8068dac4e04d0082;Host=ec2-54-217-217-142.eu-west-1.compute.amazonaws.com;Port=5432;Database=d15oddhtjaj3rd;Pooling=true;sslmode=Require;Trust Server Certificate=true;Timeout=1000;";
+            //services.AddDbContext<ToDoContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<ToDoContext>(options => options.UseNpgsql(connection));
             services.AddScoped<IDoThingsRepo, ToDoRepo>();
         }
 
