@@ -29,7 +29,7 @@ namespace ToDoApp
         [HttpGet]
         public IActionResult Add()
         {
-            return View();
+            return View(MyToDos.GetUsers());
         }
 
         [Route("/Create")]
