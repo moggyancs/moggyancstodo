@@ -76,5 +76,13 @@ namespace ToDoApp
         {
             return View(MyToDos.ShowUser(id));
         }
+
+        [Route("/Delete/{id}")]
+        [HttpGet]
+        public IActionResult Delete([FromRoute] int id)
+        {
+            MyToDos.Delete(id);
+            return RedirectToAction("Users");
+        }
     }
 }

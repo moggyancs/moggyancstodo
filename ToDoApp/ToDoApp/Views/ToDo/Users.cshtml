@@ -14,7 +14,10 @@
 
         @foreach (var user in Model)
         {
-            <p><a href="/profile/@user.Id">@user.Name</a></p>
+            <p>
+                <a href="/delete/@user.Id">X</a>
+                <a href="/profile/@user.Id">@user.Name</a>
+            </p>
         }
 
         <form action="/Users" method="post">
