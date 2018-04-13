@@ -1,0 +1,32 @@
+﻿
+@model IEnumerable<ToDoApp.Models.User>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    @await Html.PartialAsync("NavBar")
+    <div class="col-4">
+        <br />
+        <h1>Users of the page</h1>
+
+        @foreach (var user in Model)
+        {
+            <p><a href="/profile/@user.Id">@user.Name</a></p>
+        }
+
+
+        <form action="/Users" method="post">
+            <input type="text" name="Name" value="" />
+            <button type="submit" class="btn btn-dark">Add User</button>
+        </form>
+    </div>
+
+
+
+
+
+</body>
+</html>

@@ -36,7 +36,6 @@ namespace ToDoApp
         [HttpPost]
         public IActionResult Create(ToDo todo)
         {
-            //ToDo thing = new ToDo(Title, IsUrgent);
             MyToDos.Create(todo);
             return RedirectToAction("List");
         }
@@ -48,7 +47,6 @@ namespace ToDoApp
             return View(MyToDos.ShowToDo(id));
         }
 
-
         [Route("/Remove/{id}")]
         [HttpGet]
         public IActionResult Remove([FromRoute] int id)
@@ -57,5 +55,26 @@ namespace ToDoApp
             return RedirectToAction("List");
         }
 
+        [Route("/Users")]
+        [HttpGet]
+        public IActionResult Users()
+        {
+            return View(MyToDos.GetUsers());
+        }
+
+        [Route("/Users")]
+        [HttpPost]
+        public IActionResult Users(User user)
+        {
+            MyToDos.AddUser(user);
+            return RedirectToAction("Users");
+        }
+
+        [Route("/Profile/{id}")]
+        [HttpGet]
+        public IActionResult Profile([FromRoute] int id)
+        {
+            return View(MyToDos.ShowUser(id));
+        }
     }
 }

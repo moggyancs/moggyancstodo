@@ -7,10 +7,17 @@ namespace ToDoApp.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public List<ToDo> ToDos { get; set; }
+        public bool IsAdmin { get; set; }
 
         public User(string name)
         {
             Name = name;
+            IsAdmin = false;
+        }
+
+        public User()
+        {
+            IsAdmin = false;
         }
     }
 }

@@ -7,7 +7,7 @@
         private bool isUrgent;
         private bool isDone;
         private string description;
-        private User owner;
+        private User user;
 
         public ToDo()
         {
@@ -26,5 +26,6 @@
         public bool IsUrgent { get => isUrgent; set => isUrgent = value; }
         public bool IsDone { get => isDone; set => isDone = value; }
         public string Description { get => description; set => description = value; }
+        public User User { get => user; set => user = value; }
     }
 }

@@ -6,9 +6,9 @@
 </head>
 <body>
     @await Html.PartialAsync("NavBar")
-
     <div class="container">
-        <h2>@Model.Title</h2>
+        <br />
+        <h1>@Model.Title</h1>
         @if (Model.IsUrgent)
         {
             <p class="text-danger">This task is URGENT</p>

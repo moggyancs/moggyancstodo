@@ -1,0 +1,35 @@
+﻿@model ToDoApp.Models.User
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>@Model.Name</title>
+</head>
+<body>
+    @await Html.PartialAsync("NavBar")
+    <div class="container">
+        <br />
+        <h1>@Model.Name</h1>
+
+        <h2>Tasks</h2>
+
+        @if (Model.ToDos != null)
+        {
+            @foreach (var task in Model.ToDos)
+            {
+                <ul>
+                    <li>@task.Title</li>
+                </ul>
+            }
+
+        }
+        else
+        {
+            <p> No task added yet.</p>
+        }
+
+
+
+
+    </div>
+</body>
+</html>

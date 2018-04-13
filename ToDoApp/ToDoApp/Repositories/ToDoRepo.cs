@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq;
 using ToDoApp.Models;
 
@@ -11,6 +12,17 @@ namespace ToDoApp.Repositories
         public ToDoRepo(ToDoContext context)
         {
             this.context = context;
+        }
+
+        public void AddUser(User user)
+        {
+            context.Add(user);
+            context.SaveChanges();
+        }
+
+        public IEnumerable<User> GetUsers()
+        {
+            return context.Users;
         }
 
         public void Create(ToDo thing)
@@ -41,6 +53,12 @@ namespace ToDoApp.Repositories
             ToDo thingToUpdate = context.ToDos.FirstOrDefault(c => c.Id == 1);
             context.Update(thingToUpdate);
             context.SaveChanges();
+        }
+
+        public User ShowUser(int id)
+        {
+            context.ToDos.Load();
+            return context.Users.Single(c => c.Id == id);
         }
     }
 }
