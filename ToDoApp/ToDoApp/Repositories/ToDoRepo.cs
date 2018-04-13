@@ -45,6 +45,7 @@ namespace ToDoApp.Repositories
 
         public ToDo ShowToDo(long id)
         {
+            context.Users.Load();
             return context.ToDos.Single(c => c.Id == id);
         }
 

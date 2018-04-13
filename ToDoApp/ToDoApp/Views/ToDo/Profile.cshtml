@@ -6,32 +6,34 @@
 </head>
 <body>
     @await Html.PartialAsync("NavBar")
-    <div class="col-4">
-        <br />
-        <h1>@Model.Name</h1>
+    <div class="row justify-content-around">
+        <div class="col-4">
+            <br />
+            <h1>@Model.Name</h1>
 
-        <h2>Tasks</h2>
+            <h2>Tasks</h2>
 
-        @if (Model.ToDos != null)
-        {
-            @foreach (var task in Model.ToDos)
+            @if (Model.ToDos != null)
             {
-                <ul>
-                    <li>@task.Title</li>
-                </ul>
+                @foreach (var task in Model.ToDos)
+                {
+                    <ul>
+                        <li>@task.Title</li>
+                    </ul>
+                }
+
+            }
+            else
+            {
+                <p> No task added yet.</p>
             }
 
-        }
-        else
-        {
-            <p> No task added yet.</p>
-        }
-
-    </div>
-    <div class="col-4">
-        <img src="@Model.PictureSource" alt="@Model.Name" />
+        </div>
+        <div class="col-4">
+            <img src="@Model.PictureSource" alt="@Model.Name" />
 
 
+        </div>
     </div>
 </body>
 </html>

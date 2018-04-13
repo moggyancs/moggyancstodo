@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace ToDoApp.Migrations
 {
-    public partial class userpic : Migration
+    public partial class Userpic : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
