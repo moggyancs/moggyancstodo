@@ -7,7 +7,6 @@ using ToDoApp.Repositories;
 namespace ToDoApp
 {
 
-    [Route("/Todo")]
     public class ToDoController : Controller
     {
         IDoThingsRepo MyToDos;
@@ -17,9 +16,7 @@ namespace ToDoApp
             MyToDos = myToDos;
         }
 
-        [Route("/")]
-        [Route("/List")]
-        [HttpGet]
+        [HttpGet("Todos")]
         public IActionResult List()
         {
             return View(MyToDos.Read());
@@ -37,10 +34,10 @@ namespace ToDoApp
         public IActionResult Create(ToDo todo)
         {
             MyToDos.Create(todo);
-            return RedirectToAction("List");
+            return RedirectToAction("/");
         }
 
-        [Route("/Entry/{id}")]
+        [Route("/Todo/{id}")]
         [HttpGet]
         public IActionResult Entry([FromRoute] int id)
         {
@@ -55,34 +52,6 @@ namespace ToDoApp
             return RedirectToAction("List");
         }
 
-        [Route("/Users")]
-        [HttpGet]
-        public IActionResult Users()
-        {
-            return View(MyToDos.GetUsers());
-        }
 
-        [Route("/Users")]
-        [HttpPost]
-        public IActionResult Users(User user)
-        {
-            MyToDos.AddUser(user);
-            return RedirectToAction("Users");
-        }
-
-        [Route("/Profile/{id}")]
-        [HttpGet]
-        public IActionResult Profile([FromRoute] int id)
-        {
-            return View(MyToDos.ShowUser(id));
-        }
-
-        [Route("/Deleteuser/{id}")]
-        [HttpGet]
-        public IActionResult DeleteUser([FromRoute] int id)
-        {
-            MyToDos.DeleteUser(id);
-            return RedirectToAction("Users");
-        }
     }
 }
