@@ -1,31 +1,21 @@
-﻿namespace ToDoApp.Models
+﻿using System;
+using System.Collections.Generic;
+
+namespace ToDoApp.Models
 {
     public class ToDo
     {
-        private long id;
-        private string title;
-        private bool isUrgent;
-        private bool isDone;
-        private string description;
-        private User user;
+        public long Id { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public DateTime DueDate { get; set; }
+        public User Owner { get; set; }
+        public List<User> Contributors { get; set; }
+        public Field Field { get; set; }
+        public bool IsUrgent { get; set; }
+        public bool IsDone { get; set; }
 
-        public ToDo()
-        {
-        }
 
-        public ToDo(string title, bool isUrgent)
-        {
-            this.Title = title;
-            this.IsUrgent = isUrgent;
-            this.IsDone = false;
-            this.Description = "";
-        }
 
-        public long Id { get => id; set => id = value; }
-        public string Title { get => title; set => title = value; }
-        public bool IsUrgent { get => isUrgent; set => isUrgent = value; }
-        public bool IsDone { get => isDone; set => isDone = value; }
-        public string Description { get => description; set => description = value; }
-        public User User { get => user; set => user = value; }
     }
 }
