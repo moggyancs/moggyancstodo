@@ -28,15 +28,15 @@ namespace ToDoApp.Controllers
             return RedirectToAction("Users");
         }
 
-        [Route("/Profile/{id}")]
+        [Route("/User/{id}")]
         [HttpGet]
         public IActionResult Profile([FromRoute] int id)
         {
             return View(MyToDos.ShowUser(id));
         }
 
-        [Route("/Deleteuser/{id}")]
-        [HttpGet]
+        [Route("/User/{id}")]
+        [HttpDelete]
         public IActionResult DeleteUser([FromRoute] int id)
         {
             MyToDos.DeleteUser(id);
